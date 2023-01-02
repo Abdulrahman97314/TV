@@ -1,0 +1,69 @@
+<app-loading [loading]="loading"></app-loading>
+<div class="BG" [style.backgroundImage]="'url('+ imgSrcBg+(details.backdrop_path?details.backdrop_path:details.profile_path) +')'">
+    <div class="container">
+        <div class="row align-items-center justify-content-center position-relative m-auto">
+            <div *ngIf="details.profile_path||details.poster_path" class="col-lg-6 rounded-5 mb-4">
+                <div>
+                    <img *ngIf="details.poster_path" class="w-100 rounded-5 d-none d-lg-block" [src]="imgSrc+details.poster_path" alt="">
+                    <img *ngIf="details.profile_path" class="w-100 rounded-5 d-none d-lg-block" [src]="imgSrc+details.profile_path" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <h2 *ngIf="details.title" class="title">{{details.title}}</h2>
+                    <h2 *ngIf="details.name&&!details.birthday" class="title">{{details.name}}</h2>
+                    <h2 *ngIf="details.name&&details.birthday" class="title">{{details.name}} ({{details.birthday?.slice(0,4)}})</h2>
+                    <h3 *ngIf="details.biography" class="mt-3">{{details.biography}}</h3>
+                    <div class="my-3 d-flex flex-wrap">
+                        <p class="genres me-3" *ngFor="let genre of details.genres">{{genre.name}}</p>
+                    </div>
+                    <p class="overview">{{details.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div *ngIf="credits[0]&&media!='person'">
+        <h2>Casts</h2>
+        <swiper [slidesPerView]="5.2"[spaceBetween]="1">
+            <ng-template swiperSlide *ngFor="let cast of credits">
+                <app-item  [routerLink]="['/details','person',cast.id]" [item]="cast"></app-item>
+            </ng-template>
+        </swiper>
+    </div>
+    <div *ngIf="tvCredits[0]?.poster_path&&media=='person'">
+        <h2>Known for this Tv series</h2>
+        <swiper [slidesPerView]="5.2"[spaceBetween]="1  ">
+            <ng-template swiperSlide *ngFor="let cast of tvCredits">
+                <app-item [routerLink]="['/details','tv',cast.id]" [item]="cast"></app-item>
+            </ng-template>
+          </swiper>
+    </div> 
+    <div class="mt-4" *ngIf="credits[0]?.poster_path&&media=='person'" >
+        <h2>Known for this Movies</h2>
+        <swiper [slidesPerView]="5.2"[spaceBetween]="1">
+            <ng-template swiperSlide *ngFor="let cast of credits">
+                <app-item [routerLink]="['/details','movie',cast.id]" [item]="cast"></app-item>
+            </ng-template>
+          </swiper>
+    </div> 
+
+<div *ngIf="media=='movie'||media=='tv'">
+    <div  *ngFor="let video of videos">
+        <div *ngIf="video.type=='Trailer'" class="my-3">
+            <h3>{{video.name}}</h3>
+            <iframe [src]="youtube+video.key|safe" class="w-100" height="500" frameborder="0"></iframe>
+        </div>
+        </div>
+    </div>
+        <div *ngIf="media=='movie'||media=='tv'&&similar.length>0">
+        <h2 class="my-3 bolder" *ngIf="media=='movie'&&similar.length>0">Similar movies</h2>
+        <h2 class="my-3" *ngIf="media=='tv'&&similar.length>0">Similar Tv series</h2>
+        <swiper [slidesPerView]="5.2" [spaceBetween]="1  ">
+            <ng-template swiperSlide *ngFor="let similar of similar">
+                <app-item [routerLink]="['/details',media,similar.id]" [item]="similar"></app-item>
+            </ng-template>
+        </swiper>
+    </div>
+</div>

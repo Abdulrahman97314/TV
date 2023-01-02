@@ -1,0 +1,97 @@
+<div class="BG"  style="background-image: url(assets/imgs/footer-bg.jpg);">
+    <form [formGroup]="registerForm" class="position-relative">
+        <div class="container">
+        <div class="loginForm text-black p-5 my-5">
+            <h1 class="text-center mb-5">Register</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="first_name" matInput>
+                    </mat-form-field>
+                    <div class="bg-black text-white rounded mb-2 text-center p-1"
+                        *ngIf="registerForm.get('first_name')?.errors&&registerForm.get('first_name')?.touched">
+                        <p class="m-0 p-1" *ngIf="registerForm.get('first_name')?.getError('required')">First Name is
+                            required</p>
+                        <p class="m-0 p-1" *ngIf="registerForm.get('first_name')?.getError('minlength')">First Name
+                            min length is 3
+                        </p>
+                        <p class="m-0 p-1" *ngIf="registerForm.get('first_name')?.getError('maxlength')">First Name
+                            max length is 8
+                        </p>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                    <mat-form-field class="w-100">
+                        <mat-label>Last Name</mat-label>
+                        <input formControlName="last_name" matInput>
+                    </mat-form-field>
+                    <div class="bg-black text-white rounded mb-2 text-center p-1"
+                        *ngIf="registerForm.get('last_name')?.errors&&registerForm.get('last_name')?.touched">
+                        <p class="m-0 p-1" *ngIf="registerForm.get('last_name')?.getError('required')">Last Name is required
+                        </p>
+                        <p class="m-0 p-1" *ngIf="registerForm.get('last_name')?.getError('minlength')">Last Name min length
+                            is 3</p>
+                        <p class="m-0 p-1" *ngIf="registerForm.get('last_name')?.getError('maxlength')">Last Name max length
+                            is 8</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div>
+            <mat-form-field class="w-100">
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput>
+            </mat-form-field>
+            <div class="bg-black text-white rounded mb-2 text-center p-1"
+                *ngIf="registerForm.get('email')?.errors&&registerForm.get('email')?.touched">
+                <p class="m-0 p-1" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('email')?.getError('email')">Email is not valid</p>
+            </div>
+        </div>
+        <div>
+    
+            <mat-form-field class="w-100">
+                <mat-label>age</mat-label>
+                <input type="number" formControlName="age" matInput>
+            </mat-form-field>
+            <div class="bg-black text-white rounded mb-2 text-center p-1"
+                *ngIf="registerForm.get('age')?.errors&&registerForm.get('age')?.touched">
+                <p class="m-0 p-1" *ngIf="registerForm.get('age')?.getError('required')">Age is required</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('age')?.getError('min')">Min age is 16</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('age')?.getError('max')">Max age is 60</p>
+            </div>
+        </div>
+        <div>
+            <mat-form-field class="w-100">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                <button class="hide" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="bg-black text-white rounded mb-3 text-center p-1"
+                *ngIf="registerForm.get('password')?.errors&&registerForm.get('password')?.touched">
+                <p class="m-0 p-1" *ngIf="registerForm.get('password')?.getError('required')">Password is required</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('password')?.getError('pattern')">Special characters are not allowed</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('password')?.getError('minlength')">Password min length
+                    is 6</p>
+                <p class="m-0 p-1" *ngIf="registerForm.get('password')?.getError('maxlength')">Password max length
+                    is 20</p>
+            </div>
+        </div>
+        <div *ngIf="errorMsg" class="bg-black text-white p-1 rounded mb-2 text-center">{{errorMsg}}</div>
+            <div>
+                <button (click)="sendData(registerForm)" [disabled]="registerForm.invalid" type="submit" class="btn btn-dark w-100"> <span
+                        *ngIf="!isLoading">Sign up</span>
+                    <span *ngIf="isLoading"><i class="fa fa-spinner fa-spin"></i></span></button>
+            </div>
+            <div class="my-5">
+                <p class="text-center">Already a member? <a class="blue" [routerLink]="['/login']">Log in</a></p>
+            </div>
+        </div></div>
+    </form></div>

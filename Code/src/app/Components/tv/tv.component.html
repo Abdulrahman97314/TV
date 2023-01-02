@@ -1,0 +1,23 @@
+<app-loading [loading]="loading"></app-loading>
+<div class="page-header" style="background-image: url(assets/imgs/footer-bg.jpg);">
+    <h2>TV Series</h2>
+</div>
+<div class="text-center my-5">
+    <button (click)="switchToPopular()" [ngClass]="type=='popular'?'bg-red':''"
+        class="button text-white me-1">Trending</button>
+
+    <button (click)="switchToTopRated()" [ngClass]="type=='top_rated'?'bg-red':''"
+        class="button text-white ms-1">TOP RATED</button>
+</div>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-6 col-lg-3" *ngFor="let item of tvs">
+            <app-item [routerLink]="['/details','tv',item.id]" [item]="item"></app-item>
+        </div>
+    </div>
+</div>
+<div class="text-center my-5">
+    <button (click)="getMore()" type="button" class="btn btn-outline-small">
+        load more
+    </button>
+</div>
