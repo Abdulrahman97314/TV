@@ -1,0 +1,51 @@
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+li a {
+    padding: 5px 0;
+    font-weight: 700;
+    position: relative;
+    font-size: 1.5rem;
+}
+
+li a:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    transition: width .5s ease;
+    height: 2px;
+    background-color: red;
+}
+
+li .active:after,
+li a:hover:after {
+    width: 100%;
+}
+nav{
+    z-index: 5555552;
+}
+li{
+    list-style-type: none;
+}
+ul{
+    padding: 0;
+}
+.navLink{
+    font-size: 1rem !important;
+    padding-bottom: 5px;
+}
+.navbar{
+    padding: 2rem 0rem;
+    transition: .5s ease-in-out;
+}
+.navbar-inverse{
+    background-color: black !important;
+    transition: .5s ease-in-out;
+    padding: 0rem 0rem;
+
+}

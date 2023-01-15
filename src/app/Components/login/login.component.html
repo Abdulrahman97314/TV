@@ -1,0 +1,38 @@
+<div class="BG" style="background-image: url(assets/imgs/footer-bg.jpg);">
+    <form class="position-relative" [formGroup]="loginForm">
+        <div class="container">
+            <div class="loginForm text-black p-5 my-5">
+                <h1 class="text-center mb-5 ">Login</h1>
+                <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput>
+                </mat-form-field>
+                <div>
+                    <p class="bg-black text-white rounded p-1 text-center" *ngIf="errorMsg=='email doesn\'t exist'">
+                        Email doesn't exist</p>
+                </div>
+                <mat-form-field class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+                    <button class="hide" mat-icon-button matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+                <div>
+                    <p class="bg-black text-white rounded p-1 text-center" *ngIf="errorMsg=='incorrect password'">
+                        incorrect password</p>
+                </div>
+                <div>
+                    <button (click)="sendData(loginForm)" [disabled]="loginForm.invalid" type="submit"
+                        class="btn btn-dark w-100"> <span *ngIf="!isLoading">Login</span>
+                        <span *ngIf="isLoading"><i class="fa fa-spinner fa-spin"></i></span></button>
+                </div>
+                <div class="my-5">
+                    <p class="text-center">Don't have an account? <a class="blue" [routerLink]="['/register']">Sign
+                            up</a></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

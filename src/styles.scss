@@ -1,0 +1,299 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$tv1-primary: mat.define-palette(mat.$indigo-palette);
+$tv1-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$tv1-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$tv1-theme: mat.define-light-theme((color: (primary: $tv1-primary,
+        accent: $tv1-accent,
+        warn: $tv1-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($tv1-theme);
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #0f0f0f;
+  color: #fff;
+}
+
+a,
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-outline-small {
+  border: 3px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  box-shadow: unset;
+  transition: color .3s ease, background-color .3s ease;
+  border-width: 2px;
+  padding: 0.25rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  font-weight: 700;
+}
+
+.btn-Outline:hover,
+.btn-outline-small:hover {
+  background-color: white;
+  color: red;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.maintitle {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0px;
+  padding: 0px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.page-header {
+  padding: 8rem 0 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.item:hover .small-title {
+  color: red;
+}
+
+.small-title {
+  transition: all .5s;
+}
+
+.BG {
+  padding: 9rem 0;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.img {
+  border-radius: 30px;
+  box-shadow: 0 7px 29px 0 rgb(100 100 111 / 20%);
+  z-index: 6665454;
+  width: 400px !important
+}
+
+h3 {
+  font-size: 1.17rem;
+  font-weight: 900;
+  color: unset;
+}
+
+.BG:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: linear-gradient(0deg, #0f0f0f, transparent);
+
+}
+
+.BG::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .6)
+}
+
+.overview {
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.smallImg {
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+}
+
+.BG {
+  padding: 9rem 0;
+  width: 100%;
+  position: relative;
+  background-position: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.genres {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: .8rem;
+  font-weight: 700;
+  background-color: #0f0f0f;
+}
+
+.big-btn {
+  border: 3px solid #fff;
+  background-color: transparent;
+  color: #fff;
+  box-shadow: unset;
+  transition: color .3s ease, background-color .3s ease;
+  border-radius: 30px;
+  padding: 0.5rem 1.8rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.button{
+  font-weight: 500;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  min-width: 64px;
+  padding: 8px 22px;
+  border-radius: 4px;
+  transition: background-color 250ms;
+  background-color: transparent;
+  border: none;
+}
+.bg-red {
+  background-color: red;
+}
+.genres {
+  padding: 0.5rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-size: .8rem;
+  font-weight: 700;
+  background-color: #0f0f0f;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  animation-fill-mode: both;
+  animation: bblFadInOut 1.8s infinite ease-in-out;
+}
+
+.loader {
+  color: #FFF;
+  font-size: 7px;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+  animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+.loader:before {
+  left: -3.5em;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 3.5em;
+}
+
+@keyframes bblFadInOut {
+
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em
+  }
+
+  40% {
+    box-shadow: 0 2.5em 0 0
+  }
+}
+
+.inset {
+  inset: 0;
+  z-index: 55;
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 40% !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 60% !important;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .maintitle {
+    font-size: 4rem;
+  }
+}
+
+.bg-loading {
+  background: --bg-main;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

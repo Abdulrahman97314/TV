@@ -1,0 +1,91 @@
+.data {
+    transition: all 0.3s ease-in-out;
+    inset: 0;
+    opacity: 0;
+    background-image: linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.position-relative:hover .data,
+.content {
+    opacity: 100%;
+}
+
+.position-relative:hover .content {
+    bottom: 5%;
+}
+
+.position-relative{
+    background-size: cover;
+    background-position: center center;
+    padding-top: 160%;
+    color: rgb(255, 255, 255);
+}
+p {
+    font-weight: 700;
+}
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+  }
+  
+  .single-chart {
+    width: 33%;
+    justify-content: space-around ;
+  }
+  
+  .circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 250px;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 3.8;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+    }
+  }
+  
+  .circular-chart.orange .circle {
+    stroke: #ff9f00;
+  }
+  
+  .circular-chart.green .circle {
+    stroke: #4CC790;
+  }
+  
+  .circular-chart.blue .circle {
+    stroke: #3c9ee5;
+  }
+  
+  .percentage {
+    fill: white;
+    font-size: 0.5rem;
+    text-anchor:middle;
+    color: white ;
+    font-weight: 700;
+}

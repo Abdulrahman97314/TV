@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg bg-transparent fixed-top" (scroll)="onWindowScroll()">
+    <div class="container m-lg-auto text-center">
+        <a class="navbar-brand mx-auto" routerLink="home">
+            <H1 class="text-white fw-bolder m-0"><img width="50px" src="assets/imgs/tv.png" alt="tMovies">TV
+            </H1>
+        </a>
+        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="home" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="movies" routerLinkActive="active">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="tv" routerLinkActive="active">TV
+                        Series</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="actors"
+                        routerLinkActive="active">Actors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="search"
+                        routerLinkActive="active">Search</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a *ngIf="isLogin==false" class="nav-link text-white" routerLink="login"
+                        routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="isLogin==false" class="nav-link text-white" routerLink="register"
+                        routerLinkActive="active">Register</a>
+                </li>
+                <li class="nav-item cursorPointer">
+                    <a *ngIf="isLogin==true" class="nav-link text-white" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<nav class="bg-dark fixed-bottom">
+    <div class="container text-center">
+        <div class="d-lg-none">
+            <ul class="m-auto mb-lg-0 d-flex justify-content-between ">
+                <li>
+                    <a class="text-white navLink" routerLink="home" routerLinkActive="active">Home</a>
+                </li>
+                <li  class="nav-item navLink">
+                    <a class="text-white navLink" routerLink="tv" routerLinkActive="active">TV</a>
+                </li>
+                <li  class="nav-item navLink">
+                    <a class="text-white navLink" routerLink="movies" routerLinkActive="active">Movies</a>
+                </li>
+                <li  class="nav-item navLink">
+                    <a class="text-white navLink" routerLink="actors" routerLinkActive="active">Actors</a>
+                </li>
+                <li  class="nav-item navLink">
+                    <a class="text-white navLink" routerLink="search" routerLinkActive="active">Search</a>
+                </li>
+                <li *ngIf="isLogin==false">
+                    <a class="text-white navLink" routerLink="login" routerLinkActive="active">Login</a>
+                </li>
+                <li *ngIf="isLogin==false">
+                    <a class="text-white navLink" routerLink="register" routerLinkActive="active">Register</a>
+                </li>
+                <li class="cursorPointer" *ngIf="isLogin==true">
+                    <a *ngIf="isLogin==true" class="text-white navLink" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>

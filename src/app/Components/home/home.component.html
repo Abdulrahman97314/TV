@@ -1,0 +1,61 @@
+<app-loading [loading]="loading"></app-loading>
+<swiper>
+    <ng-template  swiperSlide let-data *ngFor="let movie of popularMovies">
+        <div class="BG" [style.backgroundImage]="'url('+ imgSrcBg+movie.backdrop_path +')'">
+            <div class="container">
+                <div *ngIf="data.isActive" class="row d-flex align-items-center justify-content-center position-relative">
+                    <div class="col-md-6 px-5">
+                        <h2 data-aos="fade-down" data-aos-once="true" data-aos-offset="0"  data-aos-delay="500" *ngIf="movie.title.length<=24" class="maintitle">{{movie.title}}</h2>
+                        <h2 data-aos="fade-down" data-aos-once="true" data-aos-offset="0" data-aos-delay="500" *ngIf="movie.title.length>24" class="maintitle">{{movie.title.slice(0,24)}}...</h2>
+                        <p data-aos="fade-down" data-aos-once="true" data-aos-offset="0"  data-aos-delay="700" class="overview my-5">{{movie.overview}}</p>
+                        <button data-aos="fade-down" data-aos-once="true" data-aos-offset="0"  data-aos-delay="900" type="button" class="big-btn btn-Outline" [routerLink]="['/details','movie',movie.id]">
+                            See Details
+                        </button>
+                    </div>
+                    <div class="col-md-6 d-none d-md-block">
+                        <img data-aos="zoom-in" data-aos-once="true" data-aos-offset="0" data-aos-delay="200" class="img" [src]="imgSrc+movie.poster_path" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</swiper>
+<div class="container mb-3">
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <h2>Trending Movies</h2>
+        <button [routerLink]="['/movies']" type="button" class=" btn-outline-small">
+            View more
+        </button>
+    </div>
+    <swiper [config]="swiperConfig">
+        <ng-template swiperSlide *ngFor="let movie of popularMovies">
+            <app-item [item]="movie" [routerLink]="['/details','movie',movie.id]"></app-item>
+        </ng-template>
+    </swiper>
+</div>
+<div class="container mb-3">
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <h2>Trending TV Series</h2>
+        <button [routerLink]="['/tv']" type="button" class="btn-outline-small">
+            View more
+        </button>
+    </div>
+    <swiper [config]="swiperConfig">
+        <ng-template swiperSlide *ngFor="let tv of tvs">
+            <app-item [item]="tv" [routerLink]="['/details','tv',tv.id]"></app-item>
+        </ng-template>
+    </swiper>
+</div>
+<div class="container mb-3">
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <h2>Trending actors</h2>
+        <button [routerLink]="['/actors']" type="button" class="btn btn-outline-small">
+            View more
+        </button>
+    </div>
+    <swiper [config]="swiperConfig">
+        <ng-template swiperSlide *ngFor="let people of people">
+            <app-item [item]="people" [routerLink]="['/details','person',people.id]" ></app-item>
+        </ng-template>
+    </swiper>
+</div>

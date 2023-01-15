@@ -1,0 +1,28 @@
+    <div class="position-relative" [style.backgroundImage]="'url('+BG+')'">
+    <div class="layer">
+        <div class="data position-absolute text-center">
+            <div class="content">
+                <div *ngIf="item.vote_average" class="flex-wrapper">   
+                    <div class="single-chart">
+                      <svg viewBox="0 0 36 36" class="circular-chart green">
+                        <path class="circle-bg"
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <path class="circle"
+                        attr.stroke-dasharray="{{item.vote_average*10}}, 100"
+                          d="M18 2.0845
+                            a 15.9155 15.9155 0 0 1 0 31.831
+                            a 15.9155 15.9155 0 0 1 0 -31.831"
+                        />
+                        <text x="18" y="20.35" class="percentage">{{item.vote_average.toFixed(1)}}</text>
+                      </svg>
+                    </div>
+                </div>
+                <p>{{item.release_date?item.release_date?.slice(0,4):item.first_air_date?.slice(0,4)}}</p>
+                <p>{{item.original_title?item.original_title:item.name}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="page-header" style="background-image: url(assets/imgs/footer-bg.jpg);">
+    <h2>Search</h2>
+</div>
+<div class="text-center my-5">
+    <button (click)="switchToMovies()" [ngClass]="media=='movie'?'bg-red':''"
+        class="button text-white me-1">Movies</button>
+
+    <button (click)="switchToTv()" [ngClass]="media=='tv'?'bg-red':''"
+        class="button text-white ms-1">TV Series</button>
+        <button (click)="switchToActors()" [ngClass]="media=='person'?'bg-red':''"
+        class="button text-white ms-1">Actors</button>
+</div>
+<div class="container">
+    <mat-form-field class="w-100 text-white">
+        <mat-label>Search...</mat-label>
+        <input #text (input)="searchText=text.value;searchResults=[];getSearch()"  matInput>
+      </mat-form-field>
+    <div class="row g-5">
+        <div class="col-6 col-lg-3" *ngFor="let item of searchResults">
+            <app-item [routerLink]="['/details',media,item.id]" [item]="item"></app-item>
+        </div>
+    </div>
+</div>
+<div *ngIf="searchResults.length<totalResults" class="text-center my-5">
+    <button (click)="getMore()" type="button" class="btn btn-outline-small">
+        load more
+    </button>
+</div>

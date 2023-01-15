@@ -1,0 +1,33 @@
+.hide {
+    background: transparent;
+    border: none
+}
+
+.loginForm {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 600px; 
+    margin: 0px auto;
+
+}
+
+p {
+    font-size: 13px;
+}
+
+.blue {
+    color: #4799eb;
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+    color: red !important;
+}
+::ng-deep.mat-form-field-underline {
+    background-color: black !important;
+}
+::ng-deep.mat-form-field-ripple {
+    background-color: red !important;
+}
+::ng-deep .mat-form-field-label {
+    color: black !important;
+}
