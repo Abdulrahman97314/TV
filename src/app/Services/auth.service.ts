@@ -22,11 +22,11 @@ export class AuthService {
   }
   SignUp(userData:object):Observable<any>
   {
-    return this._HttpClient.post('https://sticky-note-fe.vercel.app/signup/',userData)
+    return this._HttpClient.post('https://route-movies-api.vercel.app/signup/',userData)
   }
   signIn(userData:object):Observable<any>
   {
-    return this._HttpClient.post('https://sticky-note-fe.vercel.app/signin/',userData)
+    return this._HttpClient.post('https://route-movies-api.vercel.app/signin/',userData)
   }
   logout(){
     localStorage.removeItem("userToken")

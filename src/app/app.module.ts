@@ -11,11 +11,11 @@ import { SwiperModule } from 'swiper/angular';
 import { FooterComponent } from './Components/footer/footer.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import {BrowserAnimationsModule  } from "@angular/platform-browser/animations";
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { LoadingComponent } from './Components/loading/loading.component';
@@ -50,7 +50,12 @@ import { SafePipe } from './safe.pipe';
     NgbModule,
     HttpClientModule,
     SwiperModule,
-    BrowserAnimationsModule,MatFormFieldModule,MatIconModule,MatInputModule,MatButtonModule,ReactiveFormsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
